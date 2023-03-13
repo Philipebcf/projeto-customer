@@ -1,0 +1,132 @@
+﻿@using AppCustomer.Models
+@model AppCustomer.Models.Customer
+@{
+    ViewData["Title"] = "Clientes";
+    Layout = "_Layout";
+    List<Customer> listCustomer = ViewBag.ListaCustomer;
+
+}
+
+<div class="container-tela-alterar">
+
+    <section class="sessao-pesquisa">
+
+        <h2 class="pesquisa-titulo-desktop">Lista de clientes</h2>
+
+        <h2 class="sessao-pesquisa-titulo">Clientes</h2>
+
+        <form href="#" class="sessao-form-pesquisa">
+
+            <input class="form-input-pesquisa" name="searchCustomer" type="search" placeholder="Pesquisar">
+            <button class="form-botao-pesquisa" type="submit">Buscar</button>
+
+        </form>
+
+    </section>
+
+    <div class="container-clientes">
+
+        <div class="container-tabela-clientes">
+
+            <table class="tabela-clientes">
+
+                <thead class="cabecalho-tabela">
+
+                    <tr class="linha-cabecalho">
+                        <th scope="col" class="remover-mobile">Código</th>
+                        <th scope="col">Nome do cliente</th>
+                        <th scope="col" class="remover-mobile">Email</th>
+                        <th scope="col" class="">Celular</th>
+                        <th scope="col"></th>
+                    </tr>
+
+                </thead>
+                <tbody class="corpo-tabela">
+
+                    @if (listCustomer != null)
+                    {
+
+                        foreach (var client in listCustomer)
+                        {
+                            var dateTime = client.BirthdayCustomer;
+                            var data = dateTime.Date.ToString("dd/MM/yyyy");
+
+                            if (client.Status_Register == 1)
+                            {
+                                <tr class="linha-corpo">
+                                    <td class="remover-mobile">@client.Id</td>
+                                    <td class="">@client.NameCustomer</td>
+                                    <td class="remover-mobile">@client.EmailCustomer</td>
+                                    <td class="">@client.CellPhoneCustomer</td>
+                                    <td><button type="button" class="botao-ver-mais" onclick='OpenModalForm("@client.Id","@client.NameCustomer","@client.EmailCustomer","@data","@client.CellPhoneCustomer","@client.PhoneCustomer","@client.Address","@client.Status_Register");'> + </button></td>
+                                </tr>
+                            }
+
+                        }
+
+                    }
+                </tbody>
+            </table>
+            <!-- inicio modal alterar cadastro customer -->
+            <div class="modal-cliente" id="modal">
+
+                <h2 class="titulo-modal"><i class="fa fa-user"></i> Dados do cliente</h2>
+
+                <div class="conteudo-modal">
+
+                    <div class="caixa-input-modal">
+                        <label for="customerName">Nome do Cliente</label>
+                        <input type="text" value="" class="input-item-modal" name="NameCustomer" id="customerName" disabled>
+
+                    </div>
+                    <div class="caixa-input-modal">
+                        <label for="EmaiL">Email cliente</label>
+                        <input type="email" class="input-item-modal" name="EmailCustomer" id="Email" disabled>
+
+                    </div>
+                    <div class="caixa-input-modal">
+                        <label for="Birthday" class="label-data-nascimento">Data de nascimento</label><br>
+                        <input type="text" name="BirthdayCustomer" id="Birthday" class="input-item-modal" disabled>
+
+                    </div>
+                    <div class="caixa-input-modal">
+
+                        <label for="">Celular</label>
+                        <input type="tel" class="input-item-modal" name="PhoneCustomer" id="CellPhone" disabled>
+
+                    </div>
+                    <div class="caixa-input-modal">
+
+                        <label for="Phone">Telefone Fixo</label>
+                        <input type="tel" class="input-item-modal" name="CellPhoneCustomer" id="Phone" disabled>
+
+                    </div>
+                    <div class="caixa-input-modal">
+
+                        <label for="addressCustomer">Endereço completo</label>
+                        <input type="text" class="input-item-modal" name="Address" id="addressCustomer" disabled>
+
+                    </div>
+                    <div class="caixa-botao-modal">
+
+                        <button type="button" class="input-botao-modal">Fechar</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="caixa-botao-exportar">
+            <!-- AJUSTAR: Solução temporária -->
+            <form href="#">
+                <input type="hidden" name="exportarCSV" value="exportarCSV" />
+                <button type="submit" class="">Exportar lista</button>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

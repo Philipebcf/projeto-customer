@@ -1,0 +1,14 @@
+.rodape-titulo {
+    font-size: 1em;
+    font-weight: 200;
+    color: var(--cor-texto-branco);
+    text-align: center;
+    background-color: var(--cor-fundo-preto);
+    padding: 1em 0;
+}
+
+@media screen and (min-width: 1024px) {
+    .rodape {
+        display: block;
+    }
+}

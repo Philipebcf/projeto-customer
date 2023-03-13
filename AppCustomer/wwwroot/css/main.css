@@ -1,0 +1,11 @@
+.renderiza-pagina {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (min-width: 1024px){
+    
+    main {
+        width: 80vw;
+    }
+}

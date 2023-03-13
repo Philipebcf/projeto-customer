@@ -1,0 +1,116 @@
+﻿@model AppCustomer.Models.Customer
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Cadastrar Cliente";
+    var textoError = TempData["MessageError"];
+    var cadastroSucessso = TempData["MessageSuccess"];
+
+}
+
+@if (TempData["MessageSuccess"] != null)
+{
+
+    <script>
+        Swal.fire({
+            icon: 'success',
+            text: '@cadastroSucessso'
+        })
+    </script>
+
+}
+
+@if (TempData["MessageError"] != null)
+{
+
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: '@textoError',
+            footer: 'confira se a campos estão vazios'
+        })
+    </script>
+}
+
+<div class="container-principal-cadastro">
+
+    <h1 class="titulo-tela-cadastro"><i class="fa fa-user icone-usuario-cadastro"></i>Inclusão de Clientes</h1>
+
+    <div class="container-cadastro">
+
+        <form class="container-form-cadastro" asp-controller="Cadastro" asp-action="CreateCustomer" method="post">
+
+            <div class="form-item">
+                <div class="caixa-input">
+
+                    <label for="customerName">Nome do Cliente</label>
+
+                    <input type="text" value="@Model.NameCustomer" class="input-item" name="NameCustomer" id="customerName" placeholder="Nome completo">
+
+                </div>
+                <div class="caixa-input">
+
+                    <label for="EmaiL">Email cliente</label>
+
+                    <input type="email" value="@Model.EmailCustomer" class="input-item" name="EmailCustomer" id="Email" placeholder="exemplo@exemplo.com" required>
+
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="caixa-input">
+
+                    <label for="Birthday" class="label-data-nascimento">Data de nascimento</label><br>
+
+                    @{
+                        var dateTime = @Model.BirthdayCustomer;
+                        var data = dateTime.Date.ToString("dd/MM/yyyy");
+
+                        if (data != "01/01/0001")
+                        {
+                            <input type="text" value="@data" name="BirthdayCustomer" id="Birthday" class="input-date" required>
+                        }
+                        else
+                        {
+                           <input type="text" name="BirthdayCustomer" id="Birthday" class="input-date" placeholder="00/00/0000" required>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="form-item">
+
+                <div class="caixa-input">
+
+                    <label for="">Celular</label>
+                    <input type="tel" value="@Model.PhoneCustomer" class="input-item phone" name="PhoneCustomer" id="CellPhone" placeholder="(00) 00000-0000" required>
+
+                </div>
+
+                <div class="caixa-input">
+
+                    <label for="Phone">Telefone Fixo</label>
+                    <input type="tel" value="@Model.CellPhoneCustomer" class="input-item phone" name="CellPhoneCustomer" id="Phone" placeholder="(00) 00000-0000" required>
+
+                </div>
+
+            </div>
+            <div class="form-item form-item-tela-grande">
+
+                <div class="caixa-input">
+
+                    <label for="addressCustomer">Endereço completo</label>
+                    <input type="text" value="@Model.Address" class="input-item" name="Address" id="addressCustomer" placeholder="Rua Luis Brasil - Bairro - SP" required>
+
+                </div>
+
+                <div class="caixa-input-botao">
+                    <button type="submit" class="input-botao">Cadastrar</button>
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+

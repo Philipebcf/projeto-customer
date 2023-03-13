@@ -1,0 +1,28 @@
+@import url("reset.css");
+@import url("header.css");
+@import url("main.css");
+@import url("home.css");
+@import url("rodape.css");
+@import url("cadastro.css");
+@import url("clientes.css");
+@import url("altera.css");
+
+:root {
+    --fonte-padrao: "Montserrat";
+    --cor-texto-preto: #000000;
+    --cor-texto-branco: #e8eaf6;
+    --cor-fundo-preto: #212121;
+    --cor-fundo-branco: #FFFFFF;
+    --cor-botao-azul: #2979ff;
+    --cor-botao-verde: #66bb6a;
+    --cor-botao-cinza: #616161;
+    --cor-botao-vermelho: #d32f2f;
+}
+
+body {
+    background-color: var(--cor-fundo-branco);
+    font-family: var(--fonte-padrao);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--cor-texto-preto);
+}

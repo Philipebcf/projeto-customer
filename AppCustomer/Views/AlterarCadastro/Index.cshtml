@@ -1,0 +1,164 @@
+﻿@using AppCustomer.Models
+@model AppCustomer.Models.Customer
+@{
+    ViewData["Title"] = "Alterar Cadastro";
+    Layout = "_Layout";
+    List<Customer> listCustomer = ViewBag.ListaCustomer;
+}
+
+
+@if (TempData["MessageSuccessUpdate"] != null)
+{
+    <script>
+        Swal.fire({
+            icon: 'success',
+            text: '@TempData["MessageSuccessUpdate"]'
+        });
+    </script>
+}
+
+@if (TempData["MessageErrorUpdate"] != null)
+{
+
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: '@TempData["MessageErrorUpdate"]'
+        });
+    </script>
+
+}
+
+
+<div class="container-tela-alterar">
+
+    <section class="sessao-pesquisa">
+
+        <h2 class="pesquisa-titulo-desktop">Alteração de cadastro</h2>
+
+        <h2 class="sessao-pesquisa-titulo">Alterar</h2>
+
+        <form href="#" class="sessao-form-pesquisa" method="post">
+
+            <input class="form-input-pesquisa" name="searchCustomer" type="search" placeholder="Pesquisar">
+            <button class="form-botao-pesquisa" type="submit">Buscar</button>
+
+        </form>
+
+    </section>
+
+    <div class="container-clientes">
+
+        <div class="container-tabela-clientes">
+
+            <table class="tabela-clientes">
+
+                <thead class="cabecalho-tabela">
+
+                    <tr class="linha-cabecalho">
+                        <th scope="col" class="remover-mobile">Código</th>
+                        <th scope="col">Nome do cliente</th>
+                        <th scope="col" class="remover-mobile">Email</th>
+                        <th scope="col" class="">Celular</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+
+                </thead>
+                <tbody class="corpo-tabela">
+
+
+                    @if (listCustomer != null)
+                    {
+                        foreach (var client in listCustomer)
+                        {
+                            var dateTime = client.BirthdayCustomer;
+                            var data = dateTime.Date.ToString("dd/MM/yyyy");
+
+                            if (client.Status_Register == 1)
+                            {
+                                <tr class="linha-corpo">
+
+                                    <td class="remover-mobile">@client.Id</td>
+                                    <td class="">@client.NameCustomer</td>
+                                    <td class="remover-mobile">@client.EmailCustomer</td>
+                                    <td class="">@client.CellPhoneCustomer</td>
+                                    <td>
+                                    <button type="button" class="botao-editar" onclick='OpenModalForm("@client.Id","@client.NameCustomer","@client.EmailCustomer","@data","@client.CellPhoneCustomer","@client.PhoneCustomer","@client.Address","@client.Status_Register");'><i class="fa fa-pencil"></i></button>
+                                    </td>
+
+                                </tr>
+                            }
+                        }
+                    }
+
+                </tbody>
+            </table>
+            <!-- inicio modal alterar cadastro customer -->
+            <div class="modal-cliente" id="modal">
+
+                <h2 class="titulo-modal"><i class="fa fa-user"></i> Dados do cliente</h2>
+
+                <form id="formInativo" asp-controller="AlterarCadastro" asp-action="UpdateStatusCustomer" method="post">
+                    <input type="hidden" id="idInativar" name="idInativar">
+                </form>
+
+                <form asp-controller="AlterarCadastro" asp-action="UpdateCustomer" class="conteudo-modal" method="post">
+                    
+                    <input type="hidden" id="id" name="Id">
+
+                    <div class="caixa-input-modal">
+                        <label for="customerName">Nome do Cliente</label>
+                        <input type="text" value="" class="input-item-modal" name="NameCustomer" id="customerName">
+
+                    </div>
+                    <div class="caixa-input-modal">
+                        <label for="EmaiL">Email cliente</label>
+                        <input type="email" class="input-item-modal" name="EmailCustomer" id="Email">
+
+                    </div>
+                    <div class="caixa-input-modal">
+                        <label for="Birthday" class="label-data-nascimento">Data de nascimento</label><br>
+                        <input type="text" name="BirthdayCustomer" id="Birthday" class="input-item-modal date">
+
+                    </div>
+                    <div class="caixa-input-modal">
+
+                        <label for="">Celular</label>
+                        <input type="tel" class="input-item-modal" name="PhoneCustomer" id="CellPhone">
+
+                    </div>
+                    <div class="caixa-input-modal">
+
+                        <label for="Phone">Telefone Fixo</label>
+                        <input type="tel" class="input-item-modal" name="CellPhoneCustomer" id="Phone">
+
+                    </div>
+                    <div class="caixa-input-modal">
+
+                        <label for="addressCustomer">Endereço completo</label>
+                        <input type="text" class="input-item-modal" name="Address" id="addressCustomer">
+
+                    </div>
+
+                    <input type="hidden" id="status_register" name="Status_Register">
+
+                    <div class="caixa-botao-modal">
+
+                        <button type="button" class="input-botao-modal">Cancelar</button>
+
+                        <button type="button" class="input-botao-modal-inativar" onclick="ConfirmarInativar();">Inativar</button>
+
+                        <button type="submit" class="input-botao-enviar">Enviar mudanças</button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

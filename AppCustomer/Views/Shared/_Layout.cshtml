@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>@ViewData["Title"]</title>
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+        <link href="~/css/fontawesome-free-6.2.1-web/css/fontawesome.css" rel="stylesheet" >
+        <link href="~/css/fontawesome-free-6.2.1-web/css/brands.css" rel="stylesheet" >
+        <link href="~/css/fontawesome-free-6.2.1-web/css/solid.css" rel="stylesheet" >
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap" rel="stylesheet">
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+        
+    </head>
+    <body> 
+         <div class="container-principal">
+
+            <header class="cabecalho">
+
+                <div class="menu">
+                    
+                    <h1 class="cabecalho-titulo-desktop"><i class="fa fa-user fa-lg icone-cliente-desktop"></i><hr/>App Cliente</h1>
+
+                    <hr class="quebra-titulo-lista"/>
+
+                    <input type="checkbox" class="icone-menu" id="icone-menu">
+                    <label for="icone-menu">
+                        <i class="fa fa-bars fa-2x icone-label-menu"></i>
+                    </label>
+                    <div class="container-lista-menu">
+  
+                        <ul class="lista-menu">
+                            <li class="lista-item">
+                                <a asp-controller="Home" asp-action="Index" class="lista-item-link">
+                                    <i class="fa fa-dashboard fa-lg"></i> Dashboard
+                                </a>
+                            </li>
+                            <li class="lista-item">
+                                <a asp-controller="Cadastro" asp-action="Index" class="lista-item-link">
+                                    <i class="fa fa-user fa-lg"></i> Cadastrar
+                                </a>
+                            </li>
+                            <li class="lista-item">
+                                <a asp-controller="AlterarCadastro" asp-action="Index" class="lista-item-link">
+                                    <i class="fa fa-user fa-lg"></i> Alterar Cadastro
+                                </a>
+                            </li>
+                            <li class="lista-item">
+                                <a asp-controller="Clientes" asp-action="Index" class="lista-item-link">
+                                    <i class="fa fa-user fa-lg"></i> Clientes
+                                </a>
+                            </li>
+                        </ul>
+    
+                    </div>
+                </div>
+
+                <h1 class="cabecalho-titulo"><i class="fa fa-user fa-lg icone-cliente"></i> App Cliente</h1>
+
+            </header>
+            <main class="renderiza-pagina">
+
+                @RenderBody()
+
+            </main>
+         </div>
+         <footer class="rodape">              
+             
+            <h2 class="rodape-titulo">2023 - &copy; CopyRight - Philipe Cabral</h2>
+
+        </footer>
+        <script src="~/js/site.js"></script>
+        <script src="~/js/home.js"></script>
+        <script src="~/js/alterar-clientes.js"></script>
+    </body>
+</html>

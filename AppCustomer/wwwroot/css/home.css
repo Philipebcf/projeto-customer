@@ -1,0 +1,154 @@
+.caixa-titulo-home {
+    background-color: var(--cor-fundo-preto);
+    color: var(--cor-texto-branco);
+    padding: 1.5em 1em;
+    display: flex;
+    justify-content: space-between;   
+
+}
+
+.container-medidores {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.caixa-medidor {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5em 0.5em;
+    padding: 1em 1em;
+    text-align: center;
+    align-items: center;
+    background-color: var(--cor-fundo-preto);
+    border: 1px solid var(--cor-fundo-preto);
+    border-radius: 6px;
+    box-shadow: 4px 4px 10px var(--cor-fundo-preto);
+    
+  
+}
+
+.medidor {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: var(--cor-texto-branco);
+    width: 100%;
+    
+  
+}
+
+.medidor-totais {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    color: var(--cor-texto-branco);
+    
+}
+
+.medidor-item {
+    font-size: 0.9em;
+    font-weight: 400;
+    width: 90%;
+}
+
+.medidor-item-texto-green {
+    padding: 0.5em 0.5em;
+    border: 1px solid #66bb6a;
+    border-radius: 2px 2px 0px 0px;
+}
+
+.medidor-item-texto-green + h3 {
+    padding: 1em 1em;
+    background-color: #66bb6a;
+   
+}
+
+
+.medidor-item-texto-blue {
+    padding: 0.5em 0.5em;
+    border: 1px solid #29b6f6;
+    border-radius: 2px 2px 0px 0px;
+}
+
+.medidor-item-texto-blue + h3 {
+    padding: 1em 1em;
+    background-color: #29b6f6;
+   
+}
+
+
+.medidor-item-texto-red {
+    padding: 0.5em 0.5em;
+    border: 1px solid #e57373;
+    border-radius: 2px 2px 0px 0px;
+}
+
+.medidor-item-texto-red + h3 {
+    padding: 1em 1em;
+    background-color: #e57373;
+   
+}
+
+.titulo-medidor {
+    font-size: 1em;
+    font-weight: 300;
+    background-color: var(--cor-fundo-preto);
+    color: var(--cor-texto-branco);
+    padding: 0.6em 0;
+}
+
+.medidor-grafico-area {
+    height: 40vh; 
+}
+
+.texto-bem-vindo,
+.dataEhora {
+    display: none;
+}
+
+
+@media screen and (min-width: 1024px){
+    
+    .container-medidores {
+        height: 100%;
+        width: 80vw;
+        
+    }
+
+    .container-item {
+        display: grid;
+        grid-template-columns: 39.8vw 39.8vw;
+        height: 100%;
+        padding: 1;
+    }
+
+    .caixa-titulo-home {
+        padding: 1em 1em;
+    
+    }
+
+    .medidor-totais {
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+        align-items: center;
+        color: var(--cor-texto-branco);
+        height: 100%;
+    }
+
+    .medidor-item {
+        font-size: 0.9em;
+        font-weight: 400;
+        margin: 0 1em;
+       
+    }
+
+    .texto-bem-vindo,
+    .dataEhora {
+        display: block;
+    }
+
+
+}

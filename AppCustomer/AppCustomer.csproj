@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\css\altera.css" />
+    <Content Remove="wwwroot\css\cadastro.css" />
+    <Content Remove="wwwroot\css\clientes.css" />
+    <Content Remove="wwwroot\css\header.css" />
+    <Content Remove="wwwroot\css\home.css" />
+    <Content Remove="wwwroot\css\main.css" />
+    <Content Remove="wwwroot\css\reset.css" />
+    <Content Remove="wwwroot\css\rodape.css" />
+    <Content Remove="wwwroot\css\site.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\altera.css" />
+    <None Include="wwwroot\css\cadastro.css" />
+    <None Include="wwwroot\css\clientes.css" />
+    <None Include="wwwroot\css\header.css" />
+    <None Include="wwwroot\css\home.css" />
+    <None Include="wwwroot\css\main.css" />
+    <None Include="wwwroot\css\reset.css" />
+    <None Include="wwwroot\css\rodape.css" />
+    <None Include="wwwroot\css\site.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.11" />
+  </ItemGroup>
+
+</Project>

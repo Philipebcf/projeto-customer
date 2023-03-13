@@ -1,0 +1,99 @@
+﻿@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Dashboard";
+    var currentDateTime = DateTime.Now;
+    var totalClientes = ViewBag.TotalClientes;
+    var totalEmails = ViewBag.TotalEmails;
+    var totalCellPhones = ViewBag.TotalCellPhones;
+    var totalJovens = ViewBag.TotalJovens;
+    var totalAdultos = ViewBag.TotalAdultos;
+    var totalVelhos = ViewBag.TotalVelhos;
+    var totalAtivos = ViewBag.TotalAtivos;
+    var totalInativos = ViewBag.TotalInativos;
+}
+
+<div class="caixa-titulo-home">
+    <h2 class="titulo-pagina-home"><i class="fa fa-database"></i> Dashboard </h2>
+    <p class="texto-bem-vindo">Bem-vindo!</p>
+    <date class="dataEhora">@currentDateTime</date>
+</div>
+
+
+<div class="container-medidores">
+
+    <div class="container-item">
+
+        <div class="caixa-medidor">
+            <!-- Clientes ativos e não ativos / por mês -->
+            <h2 class="titulo-medidor">Ativos & Inativos</h2>
+
+            <div class="medidor medidor-grafico">
+                <canvas class="" id="myChart"></canvas>
+                <input type="hidden" id="totalAtivos" value="@totalAtivos"/>
+                <input type="hidden" id="totalInativos" value="@totalInativos"/>
+            </div>
+
+        </div>
+
+        <div class="caixa-medidor">
+            <!-- total de clientes cadastrados & objetivo/meta a longo prazo -->
+            <h2 class="titulo-medidor">Meta de clientes</h2>
+
+            <div class="medidor medidor-grafico">
+                <canvas class="myChart2" id="myChart2"></canvas>
+                <input type="hidden" id="metaTotalClientes" value="@totalClientes"/>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container-item">
+
+        <div class="caixa-medidor">
+            <!--  total de emails, celures, clientes -->
+            <h2 class="titulo-medidor">Medidores Totais</h2>
+
+            <div class="medidor-totais">
+
+                <div class="medidor-item">
+                    <p class="medidor-item-texto-green">
+                        @totalClientes
+                        <h3 class="">CLIENTES</h3>
+                    </p>
+                </div>
+
+                <div class="medidor-item">
+                    <p class="medidor-item-texto-blue">
+                        @totalEmails
+                        <h3 class="">EMAIL</h3>
+                    </p>
+                </div>
+
+                <div class="medidor-item">
+                    <p class="medidor-item-texto-red">
+                        @totalCellPhones
+                        <h3 class="">CELURARES</h3>
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="caixa-medidor">
+            <!-- faixa etaria de clientes / quantos entre (jovens), (adultos), (velhos) -->
+            <h3 class="titulo-medidor">Faixa etária</h3>
+
+            <div class="medidor medidor-grafico medidor-grafico-area">
+                <canvas id="myChart4" class="myChart"></canvas>
+                <input type="hidden" id="totalJovens" value="@totalJovens"/>
+                <input type="hidden" id="totalAdultos" value="@totalAdultos"/>
+                <input type="hidden" id="totalVelhos" value="@totalVelhos"/>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

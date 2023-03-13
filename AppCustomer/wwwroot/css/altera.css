@@ -1,0 +1,29 @@
+.botao-editar {
+    background-color: var(--cor-fundo-branco);
+    padding: 0.5em;
+    border: 1px solid var(--cor-fundo-preto);
+    border-radius: 5px;
+}
+
+.input-botao-enviar {
+    margin: 0 0 0 1em;
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 0.9em 1em;
+    color: var(--cor-texto-branco);
+    background-color: var(--cor-botao-azul);
+    border: none;
+    border-radius: 3px;
+}
+
+.input-botao-modal-inativar {
+    margin: 0 0 0 1em;
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 0.9em 1em;
+    color: var(--cor-texto-branco);
+    background-color: var(--cor-botao-vermelho);
+    border: none;
+    border-radius: 3px;
+}
+
