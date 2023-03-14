@@ -22,40 +22,26 @@ namespace AppCustomer.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateCustomer(Customer customer)
         {
-
-            if (ModelState.IsValid)
+            if (ModelState.IsValid || customer == null)
             {
-                if (customer != null)
+                var result = await _managerCustomer.QueryCustomer(customer.EmailCustomer);
+
+                if (customer.EmailCustomer == result.EmailCustomer)
                 {
-                    string queryCustomer = customer.EmailCustomer;
 
-                    var resultEmail = await _managerCustomer.QueryCustomer(queryCustomer);
-
-                    if (queryCustomer == resultEmail.EmailCustomer)
-                    {
-                        //TempData["MessageError"] = "Email já está em uso!";
-                        TempData["MessageError"] = "Email em uso!";
-                        return View("Index", customer);
-
-                    }
-                    var result = await _managerCustomer.CreateCustomerAsync(customer);
-
-                    if (result)
-                    {
-                        TempData["MessageSuccess"] = "Cadastro efetuado !";
-                        return RedirectToAction("Index", "Cadastro");
-
-                    }
-                    else
-                    {
-                        TempData["MessageError"] = "Erro ao cadastrar!";
-                        return View("Index", customer);
-                    }
+                    TempData["MessageError"] = "Email em uso!";
+                    return View("Index", customer);
 
                 }
-            }
+                if (await _managerCustomer.CreateCustomerAsync(customer))
+                {
+                    TempData["MessageSuccess"] = "Cadastro efetuado !";
+                    return RedirectToAction("Index", "Cadastro");
 
-            TempData["MessageError"] = "Erro, Preencher todos os campos!";
+                }
+
+            }
+            TempData["MessageError"] = "falha ao cadastrar!";
             return View("Index", customer);
         }
 

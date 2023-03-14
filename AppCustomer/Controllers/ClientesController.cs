@@ -14,7 +14,7 @@ namespace AppCustomer.Controllers
         }
         public IActionResult Index(string searchCustomer, string exportarCSV)
         {
-            var listaCustomer = _managerCustomer.ListAllCustomer();
+            var listaCustomer = _managerCustomer.ListAllCustomer(); 
 
             if (!string.IsNullOrEmpty(searchCustomer) && listaCustomer != null)
             {
@@ -23,7 +23,7 @@ namespace AppCustomer.Controllers
                 x.EmailCustomer.Contains(searchCustomer)).ToList();
             }
 
-            if (!string.IsNullOrEmpty(exportarCSV) && listaCustomer != null)
+            if (!string.IsNullOrEmpty(exportarCSV))
             {
                 var builderListCustomer = _managerCustomer.ListCustomerBuilder(listaCustomer);
 
@@ -33,9 +33,7 @@ namespace AppCustomer.Controllers
                 }
 
             }
-
             ViewBag.ListaCustomer = listaCustomer;
-
             return View();
         }
 

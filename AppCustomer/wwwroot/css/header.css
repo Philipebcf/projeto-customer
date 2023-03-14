@@ -57,9 +57,6 @@
 
 .lista-item-link {
     text-decoration: none;
-}
-
-.lista-item-link:visited {
     color: var(--cor-texto-branco);
 }
 

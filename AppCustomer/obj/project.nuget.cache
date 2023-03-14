@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WsIs8vIN1ERj998az1aOWmfysg0vOCYc/zn17wR8OthDgPERNyXW8CpWoG6hxzAkHlCMVP22ajw+rTwFwfKB3Q==",
+  "dgSpecHash": "QP4nQRktzx6uQusJKWO/OthGtRfnSCIyrCvEx7FgQbuPNVvQomTqBK8wQaAJU56YExmPFdXKmZgScC4hAV4y+g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Philipe\\Documents\\Projetos-philipe\\projeto-customers\\AppCustomer\\AppCustomer.csproj",
+  "projectFilePath": "C:\\Users\\Philipe\\Pictures\\projeto-customers\\AppCustomer\\AppCustomer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Philipe\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",
     "C:\\Users\\Philipe\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

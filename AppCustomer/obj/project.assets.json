@@ -8727,11 +8727,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Philipe\\Documents\\Projetos-philipe\\projeto-customers\\AppCustomer\\AppCustomer.csproj",
+      "projectUniqueName": "C:\\Users\\Philipe\\Pictures\\projeto-customers\\AppCustomer\\AppCustomer.csproj",
       "projectName": "AppCustomer",
-      "projectPath": "C:\\Users\\Philipe\\Documents\\Projetos-philipe\\projeto-customers\\AppCustomer\\AppCustomer.csproj",
+      "projectPath": "C:\\Users\\Philipe\\Pictures\\projeto-customers\\AppCustomer\\AppCustomer.csproj",
       "packagesPath": "C:\\Users\\Philipe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Philipe\\Documents\\Projetos-philipe\\projeto-customers\\AppCustomer\\obj\\",
+      "outputPath": "C:\\Users\\Philipe\\Pictures\\projeto-customers\\AppCustomer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Philipe\\AppData\\Roaming\\NuGet\\NuGet.Config",

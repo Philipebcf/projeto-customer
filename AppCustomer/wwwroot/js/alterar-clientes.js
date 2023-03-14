@@ -2,7 +2,7 @@
 
     document.getElementById('modal').style.cssText = 'display: block;';
 
-    $('#idInativar').val(id);
+    $('#emailInativar').val(email);
     $('#id').val(id);
     $('#customerName').val(name);
     $('#Email').val(email);
@@ -16,7 +16,7 @@
 
 function CloseModalForm() {
 
-    $('#idInativar').val('');
+    $('#emailInativar').val('');
     $('#id').val('');
     $('#customerName').val('');
     $('#Email').val('');

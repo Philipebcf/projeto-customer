@@ -2303,11 +2303,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Philipe\\Documents\\Projetos-philipe\\projeto-customers\\projeto-customers\\api-projeto-customers.csproj",
+      "projectUniqueName": "C:\\Users\\Philipe\\Pictures\\projeto-customers\\projeto-customers\\api-projeto-customers.csproj",
       "projectName": "api-projeto-customers",
-      "projectPath": "C:\\Users\\Philipe\\Documents\\Projetos-philipe\\projeto-customers\\projeto-customers\\api-projeto-customers.csproj",
+      "projectPath": "C:\\Users\\Philipe\\Pictures\\projeto-customers\\projeto-customers\\api-projeto-customers.csproj",
       "packagesPath": "C:\\Users\\Philipe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Philipe\\Documents\\Projetos-philipe\\projeto-customers\\projeto-customers\\obj\\",
+      "outputPath": "C:\\Users\\Philipe\\Pictures\\projeto-customers\\projeto-customers\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Philipe\\AppData\\Roaming\\NuGet\\NuGet.Config",

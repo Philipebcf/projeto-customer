@@ -15,17 +15,9 @@ namespace AppCustomer.ServiceCustomer
         {
             try
             {
-                Customer newCustomer = new Customer();
-                newCustomer.NameCustomer = customer.NameCustomer;
-                newCustomer.EmailCustomer = customer.EmailCustomer;
-                newCustomer.BirthdayCustomer = customer.BirthdayCustomer;
-                newCustomer.PhoneCustomer = customer.PhoneCustomer;
-                newCustomer.CellPhoneCustomer = customer.CellPhoneCustomer;
-                newCustomer.Address = customer.Address;
-                newCustomer.Status_Register = customer.Status_Register + 1;
+                customer.Status_Register = 1;
 
-
-                string jsonCustomer = JsonSerializer.Serialize(newCustomer);
+                string jsonCustomer = JsonSerializer.Serialize(customer);
 
                 var data = new StringContent(jsonCustomer, Encoding.UTF8, "application/json");
 
@@ -44,7 +36,6 @@ namespace AppCustomer.ServiceCustomer
             }
             catch (Exception)
             {
-                //retorna false caso erro na requisição
                 return false;
             }
 
@@ -89,33 +80,16 @@ namespace AppCustomer.ServiceCustomer
             return 0;
         }
 
-        public async Task<bool> UpdateCustomerStatusRegister(string idClient)
+        public async Task<bool> UpdateCustomerStatusRegister(string buscaEmail)
         {
 
-            var customer = await QueryCustomer(idClient);
-
+            var customer = await QueryCustomer(buscaEmail);
             var id = customer.Id;
-            var name = customer.NameCustomer;
-            var email = customer.EmailCustomer;
-            var birthday = customer.BirthdayCustomer;
-            var phone = customer.PhoneCustomer;
-            var cell = customer.CellPhoneCustomer;
-            var address = customer.Address;
-            var status_code_old = customer.Status_Register;
             var statusCode = 0;
-
-            Customer newCustomer = new Customer();
-            newCustomer.Id = id;
-            newCustomer.NameCustomer = name;
-            newCustomer.EmailCustomer = email;
-            newCustomer.BirthdayCustomer = birthday;
-            newCustomer.PhoneCustomer = phone;
-            newCustomer.CellPhoneCustomer = cell;
-            newCustomer.Address = address;
-            newCustomer.Status_Register = statusCode;
+            customer.Status_Register = statusCode;
 
 
-            string jsonCustomer = JsonSerializer.Serialize(newCustomer);
+            string jsonCustomer = JsonSerializer.Serialize(customer);
 
             var data = new StringContent(jsonCustomer, Encoding.UTF8, "application/json");
 
@@ -208,16 +182,13 @@ namespace AppCustomer.ServiceCustomer
                 var jsonString = content.Result.ToString();
 
                 JsonSerializerOptions _jsonOptions = new(JsonSerializerDefaults.Web);
-                var jsonDeserialize = JsonSerializer.Deserialize<List<Customer>>(jsonString, _jsonOptions);
+                var jsonDeserializeCustomer = JsonSerializer.Deserialize<List<Customer>>(jsonString, _jsonOptions);
 
-                customer = jsonDeserialize;
-
-                return customer;
+                return jsonDeserializeCustomer;
 
             }
             catch (Exception)
             {
-                //retorna list customers null, caso erro na requisição da api.
                 return customer;
             }
 
@@ -248,31 +219,13 @@ namespace AppCustomer.ServiceCustomer
 
                 JsonSerializerOptions _jsonOptions = new(JsonSerializerDefaults.Web);
 
-                var jsonDeserialize = JsonSerializer.Deserialize<Customer>(jsonString, _jsonOptions);
+                var jsonDeserializeCustomer = JsonSerializer.Deserialize<Customer>(jsonString, _jsonOptions);
 
-                var id = jsonDeserialize.Id;
-                var name = jsonDeserialize.NameCustomer;
-                var email = jsonDeserialize.EmailCustomer;
-                var birthday = jsonDeserialize.BirthdayCustomer.Date;
-                var phone = jsonDeserialize.PhoneCustomer;
-                var cellphone = jsonDeserialize.CellPhoneCustomer;
-                var address = jsonDeserialize.Address;
-                var status_register = jsonDeserialize.Status_Register;
-
-                customer.Id = id;
-                customer.NameCustomer = name;
-                customer.EmailCustomer = email;
-                customer.BirthdayCustomer = birthday.Date;
-                customer.PhoneCustomer = phone;
-                customer.CellPhoneCustomer = cellphone;
-                customer.Address = address;
-                customer.Status_Register = status_register;
-
-                return customer;
+            
+                return jsonDeserializeCustomer;
             }
             catch (Exception)
             {
-                //retorna objeto customer null, caso erro na requisição da api.
                 return customer;
             }
         }
